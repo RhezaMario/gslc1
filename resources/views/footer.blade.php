@@ -9,6 +9,6 @@
 </head>
 
 <div class = "footer">
-
+    <p> footer </p>
 </div>
 </html>
