@@ -2,32 +2,51 @@
 @extends('header')
 
 @section('content')
-<h1> Welcome to Home page
-<div class = "assignments">
-    <?php $i = 0 ?>
-    <div class = "notification"> the value of i is 0 </div>
-    @if ($i >= 10){
-        <div class = "result">loop will not work(if)</div>
-    }
-    @else
-        <div class = "result"> loop will work (if) </div>
-    @endif
-    @switch($i)
-        @case(0)
-            <div class = "result2"> variable i is 0 (switch case)</div>
-            @break
-        @case(10)
-            <div class = "result2"> variable i is 10 (switch case) </div>
-        @default
-
-    @endswitch
-    @while ($i < 10)
-        <div class = "alert">
-            <p> this is a loop </p>
-        </div>
-        <?php $i++?>
-    @endwhile
+<body>
+<div class = "welcome">
+<h1> Welcome to Home page </h1>
 </div>
+    <div class = "assignments">
+        <div class = "container">
+        <div class = "homeview">
+            <img src="{{asset('images/Background.jpg')}}" id="img1" alt="" >
+        </div>
+         <?php $i = 0 ?>
+         @if ($i == 1)
+        <div class = "failed">Please sign in to before you proceed</div>
+         @else
+            <div class = "result">----------------------------------------------------------------------------</div>
+         @endif
+         @switch($i)
+             @case(0)
+                 <div class = "result2">
+                    <div class="text">
+                   <p> Welcome to our websites</p>
+                   <p> Please Browse to your heart contents </p>
+                   </div>
+                   <button class = "more">More></button>
+            @break
+            @case(1)
+                <div class = "result2"> not found </div>
+             @default
+
+         @endswitch
+        </div>
+    </div>
+    <div class = "second">
+    <div class = "subtitle">Recommended Product Sets</div>
+        <div class = "loops">
+            @forelse ($Home as $val)
+            <div class = "list">
+             {{$val}}
+         </div>
+        @empty
+             <div class = "alerts"> No data available</div>
+         @endforelse
+        </div>
+        <button class="sets">More Sets</button>
+    </div>
+</body>
 @include('footer')
 @endsection
 
